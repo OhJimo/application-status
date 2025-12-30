@@ -16,7 +16,7 @@
 
         body {
             font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-            background-color: #1a1a1a;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             min-height: 100vh;
@@ -32,7 +32,7 @@
         .title {
             font-size: 36px;
             font-weight: 800;
-            color: #fff;
+            color: #333;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -48,6 +48,7 @@
             grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
             background-color: #2d2d2d;
             padding: 15px 10px;
+            border-radius: 10px 10px 0 0;
         }
 
         .table-header span {
@@ -58,8 +59,10 @@
         }
 
         .table-body {
-            max-height: 400px;
-            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
         }
 
         .table-row {
@@ -171,7 +174,7 @@
         // --- Configuration ---
         const config = {
             updateInterval: 5000, // 5초마다 새 신청 추가
-            maxRows: 10 // 최대 표시 행 수
+            maxRows: 5 // 최대 표시 행 수 (모바일 최적화)
         };
 
         // 샘플 데이터
@@ -214,7 +217,7 @@
         ];
 
         // 현재 표시된 데이터
-        let currentData = [...sampleData.slice(0, 6)];
+        let currentData = [...sampleData.slice(0, 5)];
 
         // 상태 뱃지 HTML 생성
         function getStatusBadge(status) {
